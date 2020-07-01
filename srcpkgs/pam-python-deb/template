@@ -1,0 +1,24 @@
+# Template file for 'pam-python-deb'
+pkgname=pam-python-deb
+version=1.1.0
+revision=1
+hostmakedepends="wget tar xz"
+short_desc="Pam-python is a PAM module that runs the Python interpreter"
+maintainer="Domenico Panella <pandom79@gmail.com>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/Ralnoc/pam-python"
+
+do_fetch() {
+	wget https://svwh.dl.sourceforge.net/project/pam-python/pam-python-1.0.7-1/libpam-python_1.0.7-1_amd64.deb
+}
+
+do_extract() {
+	ar x ${XBPS_BUILDDIR}/libpam-python_1.0.7-1_amd64.deb
+	tar xf data.tar.xz
+}
+
+do_install() {
+	vmkdir usr/lib/security
+	vcopy lib/x86*/security/pam*.so usr/lib/security/
+	chmod 755 ${DESTDIR}/usr/lib/security/pam*.so
+}

@@ -1,0 +1,13 @@
+# Template file for 'pam-python'
+pkgname=pam-python
+version=1.0.7
+revision=1
+build_style=gnu-makefile
+makedepends="pam-devel python-devel python3-Sphinx"
+depends="python"
+short_desc="Pam-python is a PAM module that runs the Python interpreter"
+maintainer="Domenico Panella <pandom79@gmail.com>"
+license="MIT"
+homepage="https://github.com/Ralnoc/pam-python"
+distfiles="https://downloads.sourceforge.net/project/pam-python/${pkgname}-${version}-1/${pkgname}-${version}.tar.gz"
+checksum=96ce72fe355b03b87c0eb540ecef06f33738f98f56581e81eb5bffbad1a47e07

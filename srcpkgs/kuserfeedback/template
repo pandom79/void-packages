@@ -1,0 +1,27 @@
+# Template file for 'kuserfeedback'
+pkgname=kuserfeedback
+version=1.0.0
+revision=1
+build_style=cmake
+configure_args="-DBUILD_TESTING=OFF"
+hostmakedepends="extra-cmake-modules clang qt5-tools flex bison php"
+makedepends="qt5-devel qt5-declarative-devel qt5-svg-devel qt5-charts-devel qt5-tools-devel
+ qt5-plugin-mysql qt5-plugin-odbc qt5-plugin-pgsql qt5-plugin-sqlite qt5-plugin-tds"
+depends="qt5-core"
+short_desc="Framework for collecting feedback from application users via telemetry and targeted surveys"
+maintainer="Domenico Panella <pandom79@gmail.com>"
+license="GPL-2.0-or-later"
+homepage="https://api.kde.org/frameworks/kuserfeedback/html/index.html"
+distfiles="${KDE_SITE}/${pkgname}/${pkgname}-${version}.tar.xz"
+checksum=5a2f53ebb4b99a280757ca32bd9b686a7764a726e7e4d8bafee33acbb44b9db7
+
+kuserfeedback-devel_package() {
+	short_desc+=" - development files"
+	depends="${makedepends} ${sourcepkg}>=${version}_${revision}"
+	pkg_install() {
+		vmove usr/include
+		vmove usr/lib/qt5/mkspecs
+		vmove usr/lib/cmake
+		vmove "usr/lib/*.so"
+	}
+}

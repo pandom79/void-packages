@@ -1,0 +1,19 @@
+# Template file for 'discover'
+pkgname=discover
+version=5.21.1
+revision=1
+build_style=cmake
+configure_args="-DBUILD_TESTING=OFF -DCMAKE_INSTALL_LIBEXECDIR=lib"
+hostmakedepends="extra-cmake-modules plasma-framework PackageKit-Qt
+ pkgconf gettext AppStream-qt"
+makedepends="qt5-devel qt5-declarative-devel kcoreaddons-devel kconfig-devel
+ kcrash-devel kdbusaddons-devel ki18n-devel karchive-devel kxmlgui-devel kitemmodels-devel
+ kio-devel kdeclarative-devel knewstuff-devel kirigami2-devel flatpak-devel fwupd-devel AppStream-devel
+ discount-devel kuserfeedback-devel kcmutils-devel kidletime-devel libjcat-devel libcurl-devel"
+depends="PackageKit-Qt kuserfeedback"
+short_desc="Discover helps you find and install applications, games, and tools"
+maintainer="Domenico Panella <pandom79@gmail.com>"
+license="GPL-2.0-or-later"
+homepage="https://apps.kde.org/it/discover"
+distfiles="${KDE_SITE}/plasma/${version}/${pkgname}-${version}.tar.xz"
+checksum=7447b09460189752144b2f2af500b4ac9e9dc76b19bfd283dd53c6a369ac3ca8

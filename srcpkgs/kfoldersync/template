@@ -1,0 +1,13 @@
+# Template file for 'kfoldersync'
+pkgname=kfoldersync
+version=3.4.1
+revision=1
+build_style=cmake
+hostmakedepends="extra-cmake-modules gettext"
+makedepends="qt5-tools-devel kcoreaddons-devel kconfig-devel kdbusaddons-devel kio-devel"
+short_desc="Folder synchronization and backup tool for KDE"
+maintainer="Domenico Panella <pandom79@gmail.com>"
+license="GPL-3.0-or-later"
+homepage="https://store.kde.org/p/1127677/"
+distfiles="https://dllb2.pling.com/api/files/download/j/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE0ODUzNTM3MzciLCJ1IjpudWxsLCJsdCI6ImRvd25sb2FkIiwicyI6IjkyZGFiOWQzMGI4YjFmZTYzMTNkYTQxYWI0MDk0YzQ5ZjVhMzVmYjE5YTA4YTBkZTE4MWVkNmU2NmJkMjFlYWMwN2ZjNDA0NGU1NzQ0NTIwOTUyOTI5NmQ3ZTAwOGNjMDVkYzEwYTg0OWYyOWUxMzUyNTk0OGZmMjc1ZGY2ZjUwIiwidCI6MTYwMTkwOTQ4MSwic3RmcCI6ImI5MGI2OTFlODIwYTcyMmE4Y2RlYzQyYzBlODUwZGNhIiwic3RpcCI6IjE1MS43My4yNTMuOTAifQ.fDPgOhQkEhrSS9QoVF6jDN3_kdYaFV5efIJGc9HVIBQ/${pkgname}-${version}.tar.xz"
+checksum=e934bc9778f593ec098549914b8ff571003e5a432e6cf0a7d81bacfccad7ae11

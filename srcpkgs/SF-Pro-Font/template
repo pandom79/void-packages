@@ -1,0 +1,28 @@
+# Template file for 'SF-Pro-Font'
+pkgname=SF-Pro-Font
+version=1
+revision=1
+archs="x86_64"
+hostmakedepends="p7zip"
+short_desc="This sans-serif typeface is the system font for iOS, macOS, and tvOS"
+maintainer="Domenico Panella <pandom79@gmail.com>"
+license="custom:SF-Pro-Font"
+homepage="https://developer.apple.com/fonts/"
+distfiles="https://developer.apple.com/design/downloads/SF-Font-Pro.dmg"
+checksum=2f8094911aece459f404057fa64f12832417a2b1182cc67e4afd0959817e4ecb
+font_dirs="usr/share/fonts/SanFranciscoPro"
+
+do_extract(){
+
+    7z x ${XBPS_SRCDISTDIR}/${pkgname}-${version}/SF-Font-Pro.dmg 
+    7z x SanFranciscoPro/San\ Francisco\ Pro.pkg
+    7z x "Payload~"
+
+}
+
+do_install(){
+    
+    vmkdir ${font_dirs}
+    vcopy  Library/Fonts/* ${font_dirs}/
+    
+}

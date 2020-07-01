@@ -1,0 +1,15 @@
+# Template file for 'pam-python3'
+pkgname=pam-python3
+version=1.1.0
+revision=1
+wrksrc=pam-python-update_for_python3
+build_style=gnu-makefile
+hostmakedepends="sudo python3-Sphinx"
+makedepends="pam-devel python3-devel"
+short_desc="Pam-python is a PAM module that runs the Python interpreter"
+maintainer="Domenico Panella <pandom79@gmail.com>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/Ralnoc/pam-python"
+distfiles="https://github.com/Ralnoc/pam-python/archive/update_for_python3.zip"
+checksum=0cc15ef5eb0deeb191ecd7adcd50cbb85a266d624f10699234db854aed6f6f42
+#questo va in errore quando viene chiamato

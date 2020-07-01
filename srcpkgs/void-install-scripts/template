@@ -1,0 +1,13 @@
+# Template file for 'void-install-scripts'
+pkgname=void-install-scripts
+version=1.0
+revision=1
+wrksrc=${pkgname}
+build_style=gnu-makefile
+makedepends="m4 asciidoc"
+short_desc="This is a small suite of scripts aimed at automating some menial tasks when installing Void Linux"
+maintainer="Domenico Panella <pandom79@gmail.com>"
+license="GPL-2.0-or-later"
+homepage="https://github.com/pandom79/void-install-scripts"
+distfiles="https://github.com/pandom79/${pkgname}/releases/download/v${version}/${pkgname}-${version}.tar.gz"
+checksum=9518fc84c50e425cc97df3536bb6cabe3ed3241b96deba95ca8f90161a8d2f72

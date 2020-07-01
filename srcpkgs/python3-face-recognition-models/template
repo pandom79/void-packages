@@ -1,0 +1,20 @@
+# Template file for 'python3-face-recognition-models'
+pkgname=python3-face-recognition-models
+version=0.3.0
+revision=1
+archs=noarch
+wrksrc=face_recognition_models-${version}
+build_style=python3-module
+hostmakedepends="python3-setuptools"
+depends="python3"
+short_desc="Models used by face_recognition"
+maintainer="Domenico Panella <pandom79@gmail.com>"
+license="CC0-1.0"
+homepage="https://pypi.org/project/face_recognition_models/"
+distfiles="${PYPI_SITE}/f/face_recognition_models/face_recognition_models-${version}.tar.gz"
+checksum=b79bd200a88c87c9a9d446c990ae71c5a626d1f3730174e6d570157ff1d896cf
+
+post_install() {
+	vlicense LICENSE
+	vdoc README.rst
+}

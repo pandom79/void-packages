@@ -1,0 +1,15 @@
+# Template file for 'akonadiconsole'
+pkgname=akonadiconsole
+version=20.08.0
+revision=1
+build_style=cmake
+hostmakedepends="extra-cmake-modules qt5-qmake "
+makedepends="qt5-devel qt5-sql qt5-plugin-mysql qt5-plugin-odbc qt5-plugin-pgsql qt5-plugin-sqlite qt5-plugin-tds
+ kcompletion-devel kconfigwidgets-devel kdbusaddons-devel kitemmodels-devel ktextwidgets-devel kxmlgui-devel kio-devel
+ akonadi5-devel kcontacts-devel kcalendarcore-devel kmime-devel libkdepim-devel calendarsupport-devel messagelib-devel"
+short_desc="Akonadi Console"
+maintainer="Domenico Panella <pandom79@gmail.com>"
+license="LGPL-2.1-or-later"
+homepage="https://techbase.kde.org/KDE_PIM/Akonadi/Development_Tools#Akonadi_Console"
+distfiles="${KDE_SITE}/release-service/${version}/src/${pkgname}-${version}.tar.xz"
+checksum=a43c6b756a69301f7756464deea58c72aaefaa1b47f1136959588e8f41b7b91b

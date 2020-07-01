@@ -1,0 +1,11 @@
+--- src/Makefile	2019-09-21 15:30:38.000000000 +0200
++++ src/Makefile2	2020-07-19 18:07:35.119330186 +0200
+@@ -3,7 +3,7 @@
+ WARNINGS=-Wall -Wextra -Wundef -Wshadow -Wpointer-arith -Wbad-function-cast -Wsign-compare -Waggregate-return -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Werror
+ #WARNINGS=-Wunreachable-code 	# Gcc 4.1 .. 4.4 are too buggy to make this useful
+ 
+-LIBDIR ?= /lib/security
++LIBDIR ?= /usr/lib/security
+ 
+ pam_python.so: pam_python.c setup.py Makefile
+ 	@rm -f "$@"

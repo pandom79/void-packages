@@ -1,0 +1,20 @@
+--- src/pam_python.c	2020-04-24 16:18:56.000000000 +0200
++++ src/pam_python2.c	2020-07-13 14:40:57.229692175 +0200
+@@ -364,7 +364,7 @@
+  */
+ static const char* get_module_path(PamHandleObject* pamHandle)
+ {
+-  const char* result = PyModule_GetFilename(pamHandle->module);
++  const char* result = (char*)PyModule_GetFilenameObject(pamHandle->module);
+   if (result != 0)
+     return result;
+   return MODULE_NAME;
+@@ -825,7 +825,7 @@
+     value = 0;
+   else
+   {
+-    value = PyUnicode_AsUTF8(pyValue);
++    value = (char*)PyUnicode_AsUTF8(pyValue);
+     if (value == 0)
+     {
+       snprintf(

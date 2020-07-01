@@ -1,0 +1,13 @@
+# Template file for 'webcamoid'
+pkgname=webcamoid
+version=8.7.1
+revision=1
+build_style=qmake
+hostmakedepends="qt5-qmake"
+makedepends="qt5-quickcontrols2-devel qt5-declarative-devel qt5-svg-devel"
+short_desc="Webcamoid is a full featured and multiplatform webcam suite"
+maintainer="Domenico Panella <pandom79@gmail.com>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/webcamoid/webcamoid"
+distfiles="https://github.com/${pkgname}/${pkgname}/archive/${version}.tar.gz"
+checksum=e0c033b0421e3ee626456fcc6e7c39d322be646a96a53352f74c3b5dc5fd5435

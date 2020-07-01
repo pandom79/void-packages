@@ -1,0 +1,17 @@
+# Template file for 'amule'
+pkgname=amule
+version=d6693fb
+revision=1
+archs="x86_64"
+build_style=gnu-configure
+configure_args="--prefix=/usr --mandir=/usr/share/man --enable-cas --enable-wxcas --enable-amule-daemon 
+ --enable-amulecmd --enable-amule-gui --enable-alc --enable-alcc --enable-webserver --disable-debug 
+ --enable-optimize --enable-geoip --enable-upnp --enable-fileview --with-boost"
+hostmakedepends="perl gettext"
+makedepends="boost-devel gd-devel pkg-config geoip-devel wxWidgets-devel libupnp-devel crypto++-devel binutils-devel gettext-devel"
+short_desc="All-platform eMule P2P Client"
+maintainer="Domenico Panella <pandom79@gmail.com>"
+license="GPL-2.0-or-later"
+homepage="https://repo.or.cz/amule.git"
+distfiles="https://repo.or.cz/amule.git/snapshot/d6693fb5c158de601c97023b6f596e7bdcbbf0f4.tar.gz"
+checksum=f1371c1915fd01214a80d9aae3c414ecafc2fb40bbdeb1553c541133ce041dc2

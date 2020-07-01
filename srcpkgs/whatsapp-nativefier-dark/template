@@ -1,0 +1,60 @@
+# Template file for 'whatsapp-nativefier-dark'
+pkgname=whatsapp-nativefier-dark
+version=1.1.0
+revision=1
+archs="armv7l i686 x86_64"
+hostmakedepends="yarn-bin ImageMagick"
+short_desc="WhatsApp desktop built with nativefier (electron) using dark theme"
+maintainer="Domenico Panella <pandom79@gmail.com>"
+license="custom:whatsapp-nativefier-dark"
+homepage="https://web.whatsapp.com"
+
+do_build(){
+
+    cp ${FILESDIR}/package.json ${XBPS_BUILDDIR}/${pkgname}-${version}/.
+    cp ${FILESDIR}/yarn.lock ${XBPS_BUILDDIR}/${pkgname}-${version}/.
+
+    yarn && yarn nativefier \
+     --name "WhatsApp" \
+    --icon "${FILESDIR}/${pkgname}.png" \
+    --width "800px" \
+    --height "600px" \
+    --background-color "#1f232a" \
+    --inject "${FILESDIR}/${pkgname}-inject.js" \
+    --verbose \
+    --single-instance \
+    --tray \
+    "${homepage}"
+
+
+}
+
+do_install(){
+
+    vmkdir opt/${pkgname}
+    
+    vcopy "WhatsApp-linux-*"/* opt/${pkgname}/
+    
+    vmkdir usr/bin
+    ln -s "/opt/${pkgname}/WhatsApp" "${DESTDIR}/usr/bin/${pkgname}"
+    
+    vmkdir usr/share/applications
+    vcopy ${FILESDIR}/${pkgname}.desktop usr/share/applications/
+    
+    vlicense ${DESTDIR}/opt/${pkgname}/LICENSE
+    
+    for _size in "192x192" "128x128" "96x96" "64x64" "48x48" "32x32" "24x24" "22x22" "20x20" "16x16" "8x8"
+    do
+        vmkdir usr/share/icons/hicolor/${_size}/apps
+        convert "${FILESDIR}/${pkgname}.png" -strip -resize "${_size}" "${DESTDIR}/usr/share/icons/hicolor/${_size}/apps/${pkgname}.png"
+    done
+
+
+}
+
+
+
+
+
+
+

@@ -1,0 +1,16 @@
+# Template file for 'PackageKit-Qt'
+pkgname=PackageKit-Qt
+version=1.0.2
+revision=1
+wrksrc="PackageKit-Qt-${version}"
+build_style=cmake
+configure_args="-DCMAKE_INSTALL_PREFIX=/usr"
+hostmakedepends="extra-cmake-modules PackageKit"
+makedepends="qt5-devel"
+depends="PackageKit"
+short_desc="Qt5 bindings for PackageKit"
+maintainer="Domenico Panella <pandom79@gmail.com>"
+license="GPL-2.0-or-later"
+homepage="https://github.com/hughsie/PackageKit-Qt"
+distfiles="https://github.com/hughsie/PackageKit-Qt/releases/download/v${version}/PackageKit-Qt-${version}.tar.xz"
+checksum=9e908478ebb85231f9fa1249c9183ccbaa16dc29e774d73f06d4cc0666058a87

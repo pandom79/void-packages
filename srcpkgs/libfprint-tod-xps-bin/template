@@ -1,0 +1,27 @@
+# Template file for 'libfprint-tod-xps-bin'
+pkgname=libfprint-tod-xps-bin
+version=0.0.6
+revision=1
+wrksrc=libfprint-2-tod1-goodix
+hostmakedepends="git"
+depends="libfprint-tod"
+short_desc="Proprietary driver for the fingerprint reader on the Dell XPS 13"
+maintainer="Domenico Panella <pandom79@gmail.com>"
+license="custom:Proprietary"
+homepage="https://git.launchpad.net/~oem-solutions-engineers/libfprint-2-tod1-goodix/+git/libfprint-2-tod1-goodix/"
+
+do_fetch() {
+	git clone "https://git.launchpad.net/~oem-solutions-engineers/libfprint-2-tod1-goodix/+git/libfprint-2-tod1-goodix/"
+}
+
+do_install() {
+
+	vmkdir usr/lib/libfprint-2/tod-1
+	vmkdir usr/lib/udev/rules.d
+
+	vcopy usr/lib/x86_64-linux-gnu/libfprint-2/tod-1/libfprint-tod-goodix-53xc-0.0.4.so usr/lib/libfprint-2/tod-1/
+	vcopy lib/udev/rules.d/60-libfprint-2-tod1-goodix.rules usr/lib/udev/rules.d/
+
+	vlicense debian/copyright LICENSE
+
+}

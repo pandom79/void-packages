@@ -1,0 +1,12 @@
+--- meson_options.txt	2020-02-10 14:59:42.000000000 +0100
++++ meson_options.txt	2020-07-16 17:54:29.087031448 +0200
+@@ -6,9 +6,6 @@
+     description: 'Generate the man files',
+     type: 'boolean',
+     value: true)
+-option('systemd_system_unit_dir',
+-    description: 'Directory for systemd service files',
+-    type: 'string')
+ option('dbus_service_dir',
+     description: 'Directory for dbus service files',
+     type: 'string')

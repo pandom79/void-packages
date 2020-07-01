@@ -1,0 +1,12 @@
+--- kcms/dateandtime/dtime.cpp	2020-07-28 13:00:30.000000000 +0200
++++ kcms/dateandtime/dtime2.cpp	2020-08-23 14:37:04.486510777 +0200
+@@ -161,7 +161,8 @@
+ 
+   const auto possible_ntputilities = {"ntpdate", "rdate"};
+   for (const QString &possible_ntputility : possible_ntputilities) {
+-    auto ntpUtility = QStandardPaths::findExecutable(possible_ntputility, path);
++    //auto ntpUtility = QStandardPaths::findExecutable(possible_ntputility, path);
++    ntpUtility = QStandardPaths::findExecutable(possible_ntputility, path);
+     if (!ntpUtility.isEmpty()) {
+       qDebug() << "ntpUtility = " << ntpUtility;
+       return;

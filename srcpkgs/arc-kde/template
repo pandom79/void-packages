@@ -1,0 +1,11 @@
+# Template file for 'arc-kde'
+pkgname=arc-kde
+version=20180614
+revision=1
+build_style=gnu-makefile
+short_desc="This is a port of the popular GTK theme Arc for Plasma 5 desktop"
+maintainer="Domenico Panella <pandom79@gmail.com>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/PapirusDevelopmentTeam/arc-kde"
+distfiles="https://github.com/PapirusDevelopmentTeam/${pkgname}/archive/${version}.tar.gz"
+checksum=44267738b2bee20f62cc3f1c150b4eb0aa7ce79f4f5d302102f11d15ffa6de15

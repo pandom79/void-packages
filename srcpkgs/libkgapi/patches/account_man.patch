@@ -1,0 +1,13 @@
+--- src/core/accountmanager.cpp	2020-11-27 07:14:03.000000000 +0100
++++ src/core/accountmanager.cpp	2021-01-07 10:19:58.181862625 +0100
+@@ -81,7 +81,9 @@
+                     currentScopes.push_back(requestedScope);
+                 }
+             }
+-            account->setScopes(currentScopes);
++            if (currentScopes != account->scopes()) {
++                account->setScopes(currentScopes);
++            }
+         }
+         auto *job = new AuthJob(account, apiKey, apiSecret);
+         job->setUsername(account->accountName());

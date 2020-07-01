@@ -1,0 +1,15 @@
+# Template file for 'kdenetwork-filesharing'
+pkgname=kdenetwork-filesharing
+version=20.04
+revision=1
+wrksrc=${pkgname}-master
+build_style=cmake
+hostmakedepends="gettext"
+makedepends="extra-cmake-modules kcoreaddons-devel kconfig-devel kio-devel"
+depends="dolphin"
+short_desc="Samba file sharing plugin for file properties"
+maintainer="Domenico Panella <pandom79@gmail.com>"
+license="GPL-2.0-or-later"
+homepage="https://invent.kde.org/network/kdenetwork-filesharing"
+distfiles="https://invent.kde.org/network/${pkgname}/-/archive/master/${pkgname}-master.tar.gz"
+checksum=34347c1c9a8f06249374c36cab3fd2f68e87d108e5600262c5cbb6a543c48966

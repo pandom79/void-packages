@@ -1,0 +1,19 @@
+# Template file for 'fprintd-tod'
+pkgname=fprintd-tod
+version=1.90.1
+revision=1
+build_style=meson
+configure_args="-Dpam=false"
+wrksrc=fprintd-${version}
+hostmakedepends="cmake pkg-config gettext pam-devel"
+makedepends="libglib-devel libfprint-tod-devel polkit-devel dbus-glib-devel perl python3-cairo-devel python3-dbus python3-dbusmock"
+short_desc="Daemon that provides fingerprint scanning functionality"
+maintainer="Domenico Panella <pandom79@gmail.com>"
+license="GPL-2.0-or-later"
+homepage="https://www.freedesktop.org/wiki/Software/fprint/"
+distfiles="https://gitlab.freedesktop.org/libfprint/fprintd/-/archive/${version}/fprintd-${version}.tar.bz2"
+checksum=4f78f2d3556a4e9dbab290ed1ff71f2dfacf957b49cdb282a4204efe9f9eab1c
+
+post_install() {
+	vsv ${pkgname}
+}

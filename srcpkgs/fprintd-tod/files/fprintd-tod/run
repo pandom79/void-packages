@@ -1,0 +1,2 @@
+#!/bin/sh
+exec /usr/libexec/fprintd 2>&1

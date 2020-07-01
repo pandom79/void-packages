@@ -2,7 +2,7 @@
 pkgname=signon-plugin-oauth2
 version=0.24
 revision=2
-wrksrc="signon-plugin-oauth2-VERSION_${version}"
+wrksrc="${pkgname}-master"
 build_style=qmake
 configure_args="LIBDIR=/usr/lib"
 hostmakedepends="pkg-config qt5-host-tools qt5-qmake"
@@ -11,8 +11,8 @@ short_desc="OAuth 1.0/2.0 plugin for the SignOn daemon"
 maintainer="Piotr Wójcik <chocimier@tlen.pl>"
 license="LGPL-2.1-only"
 homepage="https://gitlab.com/accounts-sso/signon-plugin-oauth2"
-distfiles="https://gitlab.com/accounts-sso/signon-plugin-oauth2/-/archive/VERSION_${version}/signon-plugin-oauth2-VERSION_${version}.tar.bz2"
-checksum=d37f6c93b6cd2885b517fd93cdb2407b0164655454ded2ed56e41704f81f05c4
+distfiles="https://gitlab.com/accounts-sso/${pkgname}/-/archive/master/${pkgname}-master.tar.gz"
+checksum=89cea529281184f721c8757495a88d1c3e2c21d1e0e76d6eb846ad39db315da0
 
 pre_configure() {
 	vsed -i common-project-config.pri -e 's/ -Werror/& -Wno-error=deprecated-declarations/'
@@ -28,5 +28,5 @@ fi
 post_install() {
 	rm "${DESTDIR}/usr/bin/signon-oauth2plugin-tests"
 	# conflict with kaccounts-providers, this file is less useful
-	rm "${DESTDIR}/etc/signon-ui/webkit-options.d/www.facebook.com.conf"
+	#rm "${DESTDIR}/etc/signon-ui/webkit-options.d/www.facebook.com.conf"
 }

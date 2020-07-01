@@ -1,0 +1,40 @@
+# Template file for 'howdy'
+pkgname=howdy
+version=2.6.1
+revision=1
+depends="python3-dlib opencv4 libopencv4-python3 pam-python hdf5"
+short_desc="Howdy provides Windows Hello™ style authentication for Linux"
+maintainer="Domenico Panella <pandom79@gmail.com>"
+license="MIT"
+homepage="https://github.com/boltgolt/howdy"
+distfiles="https://github.com/boltgolt/howdy/archive/v${version}.tar.gz
+ https://github.com/davisking/dlib-models/raw/master/dlib_face_recognition_resnet_model_v1.dat.bz2
+ https://github.com/davisking/dlib-models/raw/master/mmod_human_face_detector.dat.bz2
+ https://github.com/davisking/dlib-models/raw/master/shape_predictor_5_face_landmarks.dat.bz2"
+checksum="f3f48599f78fd82b049539fcfc34de25c9435cad732697bdda94e85352964794
+ abb1f61041e434465855ce81c2bd546e830d28bcbed8d27ffbe5bb408b11553a
+ db9e9e40f092c118d5eb3e643935b216838170793559515541c56a2b50d9fc84
+ 6e787bbebf5c9efdb793f6cd1f023230c4413306605f24f299f12869f95aa472"
+
+do_install() {
+   
+	vlicense LICENSE
+	
+	vmkdir usr/lib/security/howdy
+	vcopy src/* usr/lib/security/howdy/
+	
+	chmod -R 755 ${DESTDIR}/usr/lib/security/howdy
+
+	vcopy ${XBPS_BUILDDIR}/dlib_face_recognition_resnet_model_v1.dat usr/lib/security/howdy/dlib-data/
+	vcopy ${XBPS_BUILDDIR}/mmod_human_face_detector.dat usr/lib/security/howdy/dlib-data/
+	vcopy ${XBPS_BUILDDIR}/shape_predictor_5_face_landmarks.dat usr/lib/security/howdy/dlib-data/
+	
+	vmkdir usr/bin
+	ln -s /usr/lib/security/howdy/cli.py ${DESTDIR}/usr/bin/howdy
+	
+	chmod +x ${DESTDIR}/usr/lib/security/howdy/cli.py
+	
+	vmkdir usr/share/bash-completion/completions
+	vcopy autocomplete/howdy usr/share/bash-completion/completions/howdy
+   
+}

@@ -1,0 +1,27 @@
+# Template file for 'libfprint-tod'
+pkgname=libfprint-tod
+version=1.90.2
+revision=1
+wrksrc=libfprint-tod
+build_style=meson
+conflicts=libfprint
+makedepends="pkg-config glib-devel libgusb-devel pixman-devel nss-devel gobject-introspection gtk-doc"
+depends="libfprint-tod-xps-bin"
+short_desc="Library for fingerprint readers - TOD version"
+maintainer="Domenico Panella <pandom79@gmail.com>"
+license="LGPL-2.1-or-later"
+homepage="https://fprint.freedesktop.org/"
+distfiles="https://gitlab.freedesktop.org/3v1n0/libfprint/-/archive/tod/${pkgname}.tar.gz"
+checksum=7a1e609ab1822d352e4f58d8b5bce5c9936c90e9c8a25c99e788f7ca41bd6b78
+
+libfprint-tod-devel_package() {
+	depends="${makedepends} ${sourcepkg}>=${version}_${revision}"
+	short_desc+=" - development files"
+	pkg_install() {
+		vmove usr/include
+		vmove usr/lib/pkgconfig
+		vmove "usr/lib/*.so"
+		vmove usr/share/gir-1.0
+		vmove usr/share/gtk-doc
+	}
+}
